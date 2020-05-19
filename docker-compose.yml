@@ -1,0 +1,38 @@
+version: '3.6'
+
+services:
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+
+  app_sidekiq:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    volumes:
+      - .:/app
+    command: bundle exec sidekiq -q users_queue,2
+    container_name: app_sidekiq
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
+  app_backend:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: bundle exec rails s -p 3000 -b 0.0.0.0 -e development
+    container_name: app_backend
+    env_file:
+      - .env
+    depends_on:
+      - app_sidekiq
+
+volumes:
+    pgdata:
