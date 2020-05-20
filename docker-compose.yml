@@ -12,7 +12,7 @@ services:
       context: .
     volumes:
       - .:/app
-    command: bundle exec sidekiq -q users_queue,2
+    command: bundle exec sidekiq
     container_name: app_sidekiq
     env_file:
       - .env
