@@ -2,4 +2,3 @@
   request_new_users:
     every: '1s'
     class: "RequestNewUsersWorker"
-    # queue: random_users_data
