@@ -41,3 +41,4 @@ end
 gem 'sidekiq', '~> 6.0', '>= 6.0.5'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'sinatra', require: nil
+gem 'http', '~> 4.4', '>= 4.4.1'

@@ -1,4 +1,4 @@
 :schedule:
   request_new_users:
-    every: '1s'
+    every: '50s'
     class: "RequestNewUsersWorker"

@@ -2,6 +2,6 @@ class RequestNewUsersWorker
   include Sidekiq::Worker
 
   def perform(*args)
-    puts 'Hello world!...'
+    RandomUsersRequester.call
   end
 end
