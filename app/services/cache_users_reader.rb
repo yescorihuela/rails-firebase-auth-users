@@ -1,5 +1,5 @@
 class CacheUsersReader < ApplicationService
-  def call(key)
-    Redis.cache.read(key)
+  def call
+    Rails.cache.read(:names)
   end
 end
