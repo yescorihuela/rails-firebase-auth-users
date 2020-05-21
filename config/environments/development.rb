@@ -50,7 +50,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
-  config.logger.formatter = LogFormatter.new
+  config.logger.formatter = ::LogFormatter.new
   config.logger.level = Logger::DEBUG
   config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
 
