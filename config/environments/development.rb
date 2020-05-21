@@ -17,7 +17,7 @@ Rails.application.configure do
   config.cache_store = :redis_cache_store, {
     url: ENV['REDIS_URL'],
     namespace: 'random_users_data',
-    expires_in: 1.minute,
+    expires_in: 24.hours,
     db: 0
   }
 
@@ -48,4 +48,12 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+  config.logger.formatter = LogFormatter.new
+  config.logger.level = Logger::DEBUG
+  config.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
+
+  Rails.logger.extend(ActiveSupport::Logger.broadcast(Logger.new(STDOUT)))
+
 end
