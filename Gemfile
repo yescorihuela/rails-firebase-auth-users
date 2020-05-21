@@ -40,5 +40,7 @@ end
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sidekiq', '~> 6.0', '>= 6.0.5'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
-gem 'sinatra', require: nil
 gem 'http', '~> 4.4', '>= 4.4.1'
+
+gem 'jwt', '~> 2.2', '>= 2.2.1'
+
