@@ -31,7 +31,9 @@ module RailsFirebaseAuthUsers
     }
 
     # To load /lib classes
-    config.eager_load_paths << Rails.root.join('lib')
+    # config.eager_load_paths << Rails.root.join('lib')
+    Rails.autoloaders.main.ignore(Rails.root.join('lib'))
+    Dir[Rails.root.join('lib', '**', '*.rb')].each { |f| require f }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
