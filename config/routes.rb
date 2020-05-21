@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json} do
     namespace :v1 do
       get '/random/users/show/', to: 'random_users_data#show', as: :random_users_data_show
+      resources :tokens, only: [:create]
     end
   end
 end
