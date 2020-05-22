@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user, class: User do
-    email { Faker::Internet.email }
-    password_digest { Faker::Internet.password(min_length: 6) }
+    email { 'test@gmail.com' }
+    password_digest { BCrypt::Password.create('123456') }
   end
 end
