@@ -1,9 +1,9 @@
 class RandomUsersRequester < ApplicationService
   def call
     url_api = ENV['RANDOMUSER_API_URL']
-    http_config = {:read => 5, :write => 5, :connect => 5}
+
     begin
-      response = HTTP.get(url_api).timeout(http_config)
+      response = HTTP.timeout(3).get(url_api)
     rescue
       Rails.logger.error("External API(#{url_api}) not responds...")
     else
