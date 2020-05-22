@@ -14,7 +14,6 @@ class Api::V1::TokensController < ApplicationController
   private
 
   def user_params
-    puts params.to_json
     params.require(:user).permit(:email, :password)
   end
 
