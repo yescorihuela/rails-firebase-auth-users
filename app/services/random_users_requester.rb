@@ -10,13 +10,12 @@ class RandomUsersRequester < ApplicationService
       if response.code == 200
         random_users = JSON.parse(response)
         results = random_users['results']
-        Rails.cache.write(:results, results, expires_in: 1.minutes)
       else
         Rails.logger.warning("Response code #{response.code} from API...")
         Rails.logger.warning("Not data for cache renewal, keeping the last ones...")
         results = Rails.cache.read(:results)
-        Rails.cache.write(:results, results, expires_in: 1.minutes)
       end
+      Rails.cache.write(:results, results, expires_in: 1.minutes)
     end
   end
 end
