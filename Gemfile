@@ -46,7 +46,6 @@ end
 gem 'sidekiq', '~> 6.0', '>= 6.0.5'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'http', '~> 4.4', '>= 4.4.1'
-gem 'jwt', '~> 2.2', '>= 2.2.1'
 
 gem 'firebase_id_token', '~> 2.4.0'
 
