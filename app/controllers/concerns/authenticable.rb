@@ -6,7 +6,7 @@ module Authenticable
     header = request.headers['Authorization']
     return nil if header.nil?
 
-    decoded = JsonWebToken.decode(header)
-    @current_user = User.find_by_email(decoded[:email]) rescue ActiveRecord::RecordNotFound
+    decoded = ::FirebaseIdToken::Signature.verify(header)
+    @current_user = User.find_by_email(decoded["email"]) rescue ActiveRecord::RecordNotFound
   end
 end
