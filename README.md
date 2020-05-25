@@ -44,6 +44,15 @@ docker-compose exec app_backend rails db:seed # Para crear un usuario predetermi
 
 ---
 
+
+# Endpoint
+
+```bash
+/api/v1/random/users/show
+```
+
+---
+
 # Decisiones de diseño
 
 - En un principio se implementa JWT para validación de usuarios, sin embargo se determinó que no era posible a través de este método, validar el token procedente del frontend, dado a que los tokens generados desde Firebase, son generados con certificados x509, por lo tanto aunque teniendo las llaves públicas y privadas no es posible validar la firma del token.
