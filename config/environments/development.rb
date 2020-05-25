@@ -56,4 +56,7 @@ Rails.application.configure do
 
   Rails.logger.extend(ActiveSupport::Logger.broadcast(Logger.new(STDOUT)))
 
+  config.hosts << "ec2-54-90-19-20.compute-1.amazonaws.com"
+  config.hosts << "*"
+
 end
