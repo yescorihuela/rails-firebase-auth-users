@@ -8,7 +8,11 @@
 
 Logger.info("Creating user test@gmail.com...")
 
-User.create!({
+User.create!([{
   :email => 'test@gmail.com',
   :password => '123456'
-})
+},
+{
+  :email => 'yher136@gmail.com',
+  :password => '123456'
+}])
