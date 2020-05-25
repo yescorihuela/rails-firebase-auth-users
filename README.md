@@ -43,15 +43,17 @@ docker-compose exec app_backend rails db:seed # Para crear un usuario predetermi
 ```
 
 ---
-# Decisiones de diseño
+
+# Decisiones de diseño
 
 - En un principio se implementa JWT para validación de usuarios, sin embargo se determinó que no era posible a través de este método, validar el token procedente del frontend, dado a que los tokens generados desde Firebase, son generados con certificados x509, por lo tanto aunque teniendo las llaves públicas y privadas no es posible validar la firma del token.
 
 - Se utiliza otro worker para actualizar cada 30 minutos los certificados x509 procedentes de Google, basado igualmente en los servicios suministrados vía Sidekiq/Redis.
 
 ---
-# ¿Qué faltó?
-Éste apartado es principalmente para sincerar lo que faltó en el desarrollo, lo cual le otorga más transparencia al proceso de desarrollo y no toma por sorpresa al evaluador. 
+
+# ¿Qué faltó?
+Éste apartado es principalmente para sincerar lo que faltó en el desarrollo, lo cual le otorga más transparencia al proceso de desarrollo y no toma por sorpresa al evaluador.
 
 - El testing de los workers.
 - La simulación de requests fallidos a la API externa, en todo momento se hace requests a la API externa y aunque no responda con un código HTTP satisfactorio (OK o 200), se continúa indefinidamente realizando requests a la API externa y renovando el tiempo de vigencia de los últimos datos.
