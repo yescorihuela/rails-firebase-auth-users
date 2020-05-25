@@ -44,12 +44,24 @@ docker-compose exec app_backend rails db:seed # Para crear un usuario predetermi
 
 ---
 
-
 # Endpoint
 
 ```bash
 /api/v1/random/users/show
 ```
+
+---
+
+# Acceso ambiente de prueba
+
+[Para verlo funcionando en AWS](http://ec2-54-90-19-20.compute-1.amazonaws.com:3001/)
+
+```bash
+usuario: test@gmail.com
+password: 123456
+```
+
+Si desean ver el repo del frontend, pueden hacerlo por [acá](https://github.com/yescorihuela/react-firebase-auth-users)
 
 ---
 
